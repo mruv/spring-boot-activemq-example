@@ -1,12 +1,7 @@
 package com.mruv.activemqconf;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.mruv.activemqconf.domain.model.SystemUser;
 import com.mruv.activemqconf.util.JmsReceiver;
-import com.mruv.activemqconf.util.ListDeserializer;
-import com.mruv.activemqconf.util.ListSerializer;
-import java.util.List;
 import javax.jms.ConnectionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
