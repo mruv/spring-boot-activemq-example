@@ -22,7 +22,7 @@ public class SystemUserService {
     private ObjectMapper mapper;
 
     public void postOne(SystemUser user) {
-        // enqueue
+        // enqueue --> send to queue
         msgSender.convertAndSend(JmsReceiver.ONE_USER_RCV_Q, user);
     }
 
@@ -31,6 +31,9 @@ public class SystemUserService {
         // convert Collection to json array before sending
         // helps avoid conversion exceptions 
         //  --> java.lang.ClassCastException: java.util.LinkedHashMap cannot be cast to com.mruv.activemqconf.domain.model.SystemUser
+        
+        // Jackson2 has many more other issues with deserializing Collections (i.e when configured globally)
+        // using the ObjectMapper directly has no issues though ...
         msgSender.convertAndSend(JmsReceiver.MANY_USERS_RCV_Q, mapper.writeValueAsString(users));
     }
 

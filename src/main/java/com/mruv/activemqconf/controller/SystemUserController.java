@@ -23,7 +23,7 @@ public class SystemUserController {
     @Autowired
     private SystemUserService suService;
 
-    // save a single user
+    // save a single system
     // the post body should be a json object
     // ****************************************
     // {

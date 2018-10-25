@@ -39,7 +39,7 @@ public class JmsReceiver {
         // change message back to a Collection
         List<SystemUser> userList = mapper.readValue(
                 users, mapper.getTypeFactory().constructCollectionType(List.class, SystemUser.class));
-        
+        // persist
         repository.saveAll(userList);
     }
     

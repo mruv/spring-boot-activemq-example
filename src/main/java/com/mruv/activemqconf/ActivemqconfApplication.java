@@ -37,7 +37,8 @@ public class ActivemqconfApplication {
         return factory;
     }
 
-    @Bean // Serialize message content to json using TextMessage
+    // Serialize message content to json using TextMessage
+    @Bean
     public MessageConverter jacksonJmsMessageConverter(ObjectMapper objectMapper) {
         MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
         converter.setTargetType(MessageType.TEXT);
