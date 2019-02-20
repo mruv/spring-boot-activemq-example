@@ -17,7 +17,6 @@ public class SystemUserService {
     private SystemUserRepository repository;
 
     public void postOne(SystemUser user) {
-        // enqueue --> send to queue
         msgSender.convertAndSend(JmsReceiver.Q_ONE, user);
     }
 
